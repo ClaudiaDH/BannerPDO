@@ -45,6 +45,10 @@
                 </option>
                 <?php }?>
             <?php }?>
+
+            <option value= <?php echo $curso["id"];?>>
+            <?php echo $curso["nome"];?>
+            </option>
         </select>
         <button type='submit'>Cadastrar</button>
     </form>
