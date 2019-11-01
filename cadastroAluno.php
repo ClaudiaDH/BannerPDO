@@ -1,16 +1,19 @@
 <?php
 
+include_once("config/conexao.php");
     //receber a info pegas do post e depois criar uma nova conexao para salvar dentro da tabela dos cursos
 $nomeAluno = $_POST['nomeAluno'];
 $raAluno = $_POST['raAluno'];
 $cursoId =$_POST['curso'];
 
 //criar conexao com o banco de dados para jogar as info
-$host = 'mysql:host=localhost;dbname=escola;port=3307';
-$user = 'root';
-$pass = '';
+//$host = 'mysql:host=localhost;dbname=escola;port=3307';
+//$user = 'root';
+//$pass = '';
 
-$db = new PDO($host, $user, $pass);
+//$db = new PDO($host, $user, $pass);
+
+$db = conectarBanco();
 
 //nao usa o query para fazer insercao dentro de banco de dados.
 //no php é recomendado colocar as colunas
@@ -26,7 +29,7 @@ $query = $db->prepare('INSERT INTO alunos (nome, ra, curso_id) values(:nome, :ra
 $resultado = $query->execute([
     "nome" => $nomeAluno,
     "ra" => $raAluno,
-    "cursos_id" => $cursoId
+    "curso_id" => $cursoId
     ]);
 
 var_dump($resultado);
