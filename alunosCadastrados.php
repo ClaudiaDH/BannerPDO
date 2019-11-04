@@ -20,6 +20,7 @@ $alunos = $query->fetchAll(PDO::FETCH_ASSOC);
     <title>Alunos Cadastrados</title>
 </head>
 <body>
+    <h1>Lista de Alunos</h1>
     <ul>
     <?php foreach($alunos as $aluno){?> 
         <li><?php echo $aluno['nome']; ?></li>
